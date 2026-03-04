@@ -1,0 +1,6 @@
+{
+  "kilocode.hintsPath": ".ai_skills",
+  "kilocode.autoLoadHints": true,
+  "kilocode.gitCommitHints": true,
+  "kilocode.containerAppDeploymentHints": true
+}

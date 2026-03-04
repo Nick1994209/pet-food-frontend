@@ -1,0 +1,33 @@
+# Kilo Code Skills Configuration
+# This file controls which skills and hints and prompts are loaded for the project
+
+# Git Commit Best Practices
+.ai_skills/git-commit-best-practices.md
+
+# Cloud.ru Container App Deployment
+.ai_skills/cloudru-containerapp-deployment.md
+
+# Common exclusions
+!node_modules/**
+!dist/**
+!out/**
+!build/**
+!.git/**
+!coverage/**
+!.next/**
+!.cache/**
+!tmp/**
+!temp/**
+
+# Exclude common large/binary files
+!*/**.exe
+!*/**.dll
+!*/**.zip
+!*/**.tar
+!*/**.gz
+!*/**.rar
+!*/**.7z
+!*/**.iso
+!*/**.bin
+!*/**.log
+!*/**.png
