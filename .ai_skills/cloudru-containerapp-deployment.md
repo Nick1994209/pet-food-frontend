@@ -18,22 +18,27 @@ CLOUDRU_CONTAINERAPP_NAME=pet-cool-food
 
 ## How to deploy a container app
 
-### Step 1: Build and Push Docker Image
+### Step 1: Build Dockerfile
+Create a Dockerfile if it doesn't exist with nginx unprivileged and using port 8080
+
+### Step 2: Build and Push Docker Image
 Use the `cloudru_docker_build_and_push` MCP tool with these parameters:
 - `image_version`: "v0.0.1" (or your version)
 - `show_commands`: true (to see commands first)
 - `registry_name`: your registry name
 - `repository_name`: your repository name
 
-### Step 2: Delete Existing App (if needed)
+The resulting image will be available as: `{registry_name}.cr.cloud.ru/{repository_name}:{image_version}`
+
+### Step 3: Delete Existing App (if needed)
 Use the `cloudru_delete_containerapp` MCP tool to remove an existing deployment.
 ⚠️ **Warning**: This action cannot be undone!
 
-### Step 3: Create New Container App
+### Step 4: Create New Container App
 Use the `cloudru_create_containerapp` MCP tool with these parameters:
 
 **Required:**
-- `containerapp_image`: "nvkorolkov.cr.cloud.ru/dns-checker:v0.0.9"
+- `containerapp_image`: "{registry_name}.cr.cloud.ru/{repository_name}:{image_version}" (use the image from Step 2)
 - `containerapp_port`: "8080"
 
 **Optional:**
@@ -45,7 +50,7 @@ Use the `cloudru_create_containerapp` MCP tool with these parameters:
 - `containerapp_protocol`: "http_1" or "http_2"
 - `containerapp_publicly_accessible`: "true" or "false"
 
-### Step 4: Verify Deployment
+### Step 5: Verify Deployment
 Use the `cloudru_get_containerapp` MCP tool to check the application status and get the URL.
 
 ## How to manage container apps
